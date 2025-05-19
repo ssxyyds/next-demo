@@ -1,10 +1,14 @@
 {
   "private": true,
+  "main": "main.js",
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "electron:dev": "cross-env NODE_ENV=development electron .",
+    "electron:prod": "cross-env NODE_ENV=production npm run build:next && electron .",
+    "package": "npm run build:next && electron-builder"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -12,6 +16,7 @@
     "autoprefixer": "10.4.20",
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
+    "cross-env": "^7.0.3",
     "next": "latest",
     "next-auth": "5.0.0-beta.28",
     "postcss": "8.5.1",
@@ -28,6 +33,7 @@
     "@types/node": "22.10.7",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
+    "electron": "^36.2.1",
     "eslint": "^9.26.0",
     "eslint-config-next": "15.3.2"
   }
